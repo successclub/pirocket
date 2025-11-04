@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="PIROCKET Roadmap - Development and Growth Plan" />
+    <title>PIROCKET Roadmap</title>
+    
+    <!-- Google Translate -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,ko,ja,zh-CN,zh-TW,es,fr,de,it,pt,ru,ar,hi,tr,vi,id,th,ms,pl,nl,sv,da,fi,no,cs,hu,ro,bg,el,he',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+    
+    <style>
+      :root {
+        --gradient: linear-gradient(135deg, #ff6b6b, #f06595, #845ef7);
+        --primary: #ff6b6b;
+        --secondary: #845ef7;
+        --accent: #ffcb6b;
+        --bg-dark: #0f1020;
+        --bg-card: rgba(22, 24, 45, 0.8);
+        --text-primary: #ffffff;
+        --text-secondary: #cdd6f4;
+        --text-muted: #94a3b8;
+        --max-width: 900px;
+        --radius: 18px;
+        --shadow: 0 20px 40px rgba(12, 15, 35, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, rgba(132, 94, 247, 0.2), transparent 55%),
+          radial-gradient(circle at bottom, rgba(240, 101, 149, 0.18), transparent 60%),
+          var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: rgba(15, 16, 32, 0.85);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 18px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        position: relative;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .brand img {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+      }
+
+      #google_translate_element {
+        position: absolute;
+        top: 18px;
+        right: 28px;
+        z-index: 1000;
+      }
+
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+
+      body {
+        top: 0px !important;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 60px 28px;
+      }
+
+      .content {
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 48px;
+        box-shadow: var(--shadow);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin: 0 0 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        color: transparent;
+        background-clip: text;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--secondary);
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        margin: 30px 0 15px;
+        color: var(--text-primary);
+      }
+
+      h4 {
+        font-size: 1.1rem;
+        margin: 20px 0 10px;
+        color: var(--text-secondary);
+      }
+
+      p {
+        margin: 15px 0;
+        color: var(--text-secondary);
+      }
+
+      ul, ol {
+        margin: 15px 0;
+        padding-left: 30px;
+        color: var(--text-secondary);
+      }
+
+      li {
+        margin: 8px 0;
+      }
+
+      strong {
+        color: var(--text-primary);
+      }
+
+      .phase-card {
+        background: rgba(132, 94, 247, 0.1);
+        border-left: 4px solid var(--secondary);
+        padding: 24px;
+        margin: 20px 0;
+        border-radius: var(--radius);
+      }
+
+      .phase-card.completed {
+        background: rgba(76, 175, 80, 0.1);
+        border-left-color: #4caf50;
+      }
+
+      .phase-card h3 {
+        margin-top: 0;
+      }
+
+      .checkmark {
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 30px;
+        padding: 10px 20px;
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-primary);
+        transition: all 200ms ease;
+      }
+
+      .back-link:hover {
+        background: rgba(132, 94, 247, 0.2);
+        text-decoration: none;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 40px 28px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 40px 20px;
+        }
+
+        .content {
+          padding: 32px 24px;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <a href="index.html" class="brand">
+          <img src="pirocket-logo.png" alt="PIROCKET" />
+          <span>PIROCKET</span>
+        </a>
+        <div id="google_translate_element"></div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <a href="index.html" class="back-link">← Back to Home</a>
+      
+      <div class="content">
+        <h1>PIROCKET Roadmap</h1>
+
+        <p>
+          This roadmap outlines the planned development and growth trajectory for PIROCKET. The roadmap is flexible and may be adjusted based on community feedback and market conditions.
+        </p>
+        <p>
+          <strong>Key Focus</strong>: PIROCKET is committed to preparing for the quantum computing era, ensuring long-term security and protection against potential quantum computer hacking attempts. This commitment to quantum-resistant security is integrated throughout our development roadmap.
+        </p>
+
+        <h2>Phase 1: Foundation & Launch ✅ (Q1 2025)</h2>
+        <div class="phase-card completed">
+          <h3>Completed</h3>
+          <ul>
+            <li><span class="checkmark">✅</span> Token issuance on Stellar Mainnet
+              <ul>
+                <li>Total supply: 100,000,000,000 PIROCKET</li>
+                <li>Network: Stellar Mainnet</li>
+                <li>Token code: PIROCKET</li>
+              </ul>
+            </li>
+            <li><span class="checkmark">✅</span> Metadata and branding
+              <ul>
+                <li>Home domain configuration</li>
+                <li>Token icon registration</li>
+                <li>stellar.toml deployment</li>
+              </ul>
+            </li>
+            <li><span class="checkmark">✅</span> DEX integration
+              <ul>
+                <li>Liquidity pool creation (XLM/PIROCKET)</li>
+                <li>Initial liquidity: 10 XLM + 1,000,000 PIROCKET</li>
+                <li>Trading available on Stellar DEX</li>
+              </ul>
+            </li>
+            <li><span class="checkmark">✅</span> Website launch
+              <ul>
+                <li>Official website: <a href="https://successclub.github.io/pirocket/">https://successclub.github.io/pirocket/</a></li>
+                <li>Multi-language support (Google Translate)</li>
+                <li>Token information and links</li>
+              </ul>
+            </li>
+            <li><span class="checkmark">✅</span> Social media presence
+              <ul>
+                <li>X (Twitter) account: <a href="https://x.com/KimChulmin9">@KimChulmin9</a></li>
+                <li>Community engagement</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <h2>Phase 2: Community Growth (Q2 2025)</h2>
+        <div class="phase-card">
+          <h3>Target Goals</h3>
+          <ul>
+            <li><strong>Telegram Community</strong>
+              <ul>
+                <li>Create official Telegram channel/group</li>
+                <li>Community guidelines and rules</li>
+                <li>Regular updates and announcements</li>
+                <li>Community support</li>
+              </ul>
+            </li>
+            <li><strong>Discord Server</strong> (Optional)
+              <ul>
+                <li>Discord server setup</li>
+                <li>Channel organization</li>
+                <li>Community events</li>
+              </ul>
+            </li>
+            <li><strong>Community Campaigns</strong>
+              <ul>
+                <li>Meme contests</li>
+                <li>Community challenges</li>
+                <li>Engagement rewards</li>
+              </ul>
+            </li>
+            <li><strong>Marketing Initiatives</strong>
+              <ul>
+                <li>Content creation</li>
+                <li>Social media campaigns</li>
+                <li>Community outreach</li>
+                <li>Influencer partnerships (if applicable)</li>
+              </ul>
+            </li>
+            <li><strong>Documentation</strong>
+              <ul>
+                <li>Whitepaper completion</li>
+                <li>User guides</li>
+                <li>FAQ section</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <h2>Phase 3: Ecosystem Expansion (Q3 2025)</h2>
+        <div class="phase-card">
+          <h3>Target Goals</h3>
+          <ul>
+            <li><strong>Liquidity Enhancement</strong>
+              <ul>
+                <li>Increase liquidity pool size</li>
+                <li>Add more trading pairs (if applicable)</li>
+                <li>USDC/PIROCKET pool (potential)</li>
+              </ul>
+            </li>
+            <li><strong>Exchange Listings</strong>
+              <ul>
+                <li>StellarX listing application</li>
+                <li>Lobstr integration</li>
+                <li>Other Stellar-based exchanges</li>
+              </ul>
+            </li>
+            <li><strong>Partnerships</strong>
+              <ul>
+                <li>Stellar ecosystem projects</li>
+                <li>Community collaborations</li>
+                <li>Strategic partnerships</li>
+              </ul>
+            </li>
+            <li><strong>Governance</strong> (If applicable)
+              <ul>
+                <li>Community voting system</li>
+                <li>Proposal mechanism</li>
+                <li>Decentralized decision-making</li>
+              </ul>
+            </li>
+            <li><strong>Analytics & Tools</strong>
+              <ul>
+                <li>Price tracking</li>
+                <li>Trading analytics</li>
+                <li>Community dashboard</li>
+              </ul>
+            </li>
+            <li><strong>Quantum Security Research & Planning</strong>
+              <ul>
+                <li>Monitor quantum computing developments</li>
+                <li>Research quantum-resistant cryptographic solutions</li>
+                <li>Evaluate Stellar network quantum-resistant upgrade plans</li>
+                <li>Prepare migration strategy for quantum-resistant algorithms</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <h2>Phase 4: Innovation & Future (Q4 2025)</h2>
+        <div class="phase-card">
+          <h3>Target Goals</h3>
+          <ul>
+            <li><strong>Advanced Features</strong>
+              <ul>
+                <li>Staking mechanism (if applicable)</li>
+                <li>Yield farming (if applicable)</li>
+                <li>NFT integration (if applicable)</li>
+              </ul>
+            </li>
+            <li><strong>Platform Integrations</strong>
+              <ul>
+                <li>Wallet integrations</li>
+                <li>Payment gateway integration</li>
+                <li>DApp integrations</li>
+              </ul>
+            </li>
+            <li><strong>Community Expansion</strong>
+              <ul>
+                <li>Global community growth</li>
+                <li>Regional communities</li>
+                <li>Multilingual support enhancement</li>
+              </ul>
+            </li>
+            <li><strong>Ecosystem Development</strong>
+              <ul>
+                <li>Developer tools</li>
+                <li>API access</li>
+                <li>Integration documentation</li>
+              </ul>
+            </li>
+            <li><strong>Quantum-Resistant Security Implementation</strong>
+              <ul>
+                <li>Begin implementation of quantum-resistant security measures</li>
+                <li>Test quantum-resistant cryptographic algorithms</li>
+                <li>Prepare for Stellar network quantum-resistant upgrade</li>
+                <li>Community education on quantum computing threats and solutions</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <h2>Long-term Vision (2026+)</h2>
+        <div class="phase-card">
+          <h3>Potential Developments</h3>
+          <ul>
+            <li>Cross-chain integration</li>
+            <li>Advanced DeFi features</li>
+            <li>Community-driven initiatives</li>
+            <li>Ecosystem expansion</li>
+            <li>Innovation in meme coin utility</li>
+          </ul>
+        </div>
+
+        <h3>Quantum Computing Era Preparedness</h3>
+        <div class="phase-card">
+          <ul>
+            <li><strong>Full Quantum-Resistant Migration</strong>: Complete transition to quantum-resistant cryptographic algorithms as they become standardized</li>
+            <li><strong>Continuous Security Monitoring</strong>: Ongoing monitoring of quantum computing developments and cryptographic vulnerabilities</li>
+            <li><strong>Proactive Security Updates</strong>: Regular security assessments and updates to stay ahead of emerging threats</li>
+            <li><strong>Industry Leadership</strong>: Position PIROCKET as a leader in quantum-resistant cryptocurrency security</li>
+            <li><strong>Community Protection</strong>: Ensure all PIROCKET holders' assets remain secure against quantum computing attacks</li>
+          </ul>
+          <p><strong>Why Quantum Preparedness Matters</strong></p>
+          <p>
+            As quantum computing technology advances, cryptocurrencies that fail to prepare may become vulnerable to quantum attacks. PIROCKET is committed to being at the forefront of quantum-resistant security, ensuring that our community's assets remain protected long into the future. This commitment to security makes PIROCKET a safe choice for investors who value both innovation and long-term asset protection.
+          </p>
+        </div>
+
+        <h2>Success Metrics</h2>
+        <h3>Key Performance Indicators (KPIs)</h3>
+        <ul>
+          <li><strong>Community Growth</strong>
+            <ul>
+              <li>X (Twitter) followers</li>
+              <li>Telegram members</li>
+              <li>Website visitors</li>
+            </ul>
+          </li>
+          <li><strong>Trading Activity</strong>
+            <ul>
+              <li>Daily trading volume</li>
+              <li>Number of unique traders</li>
+              <li>Liquidity pool size</li>
+            </ul>
+          </li>
+          <li><strong>Adoption</strong>
+            <ul>
+              <li>Number of wallets holding PIROCKET</li>
+              <li>Transaction volume</li>
+              <li>Community engagement</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>Community Feedback</h2>
+        <p>
+          This roadmap is subject to change based on:
+        </p>
+        <ul>
+          <li>Community feedback and suggestions</li>
+          <li>Market conditions</li>
+          <li>Technical feasibility</li>
+          <li>Regulatory considerations</li>
+        </ul>
+
+        <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 40px 0;" />
+
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+          <strong>Last Updated</strong>: November 4, 2025<br />
+          <strong>Status</strong>: Phase 1 Complete, Phase 2 In Planning
+        </p>
+
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 20px;">
+          For the latest updates, visit: <a href="https://successclub.github.io/pirocket/">https://successclub.github.io/pirocket/</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        <a href="index.html">← Back to Home</a> | 
+        <a href="whitepaper.html">View Whitepaper</a>
+      </p>
+      <p style="margin-top: 20px;">
+        © 2025 PIROCKET. All rights reserved.
+      </p>
+    </div>
+  </body>
+</html>
+

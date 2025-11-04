@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="PIROCKET Whitepaper - Stellar Mainnet Meme Coin" />
+    <title>PIROCKET Whitepaper</title>
+    
+    <!-- Google Translate -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,ko,ja,zh-CN,zh-TW,es,fr,de,it,pt,ru,ar,hi,tr,vi,id,th,ms,pl,nl,sv,da,fi,no,cs,hu,ro,bg,el,he',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+    
+    <style>
+      :root {
+        --gradient: linear-gradient(135deg, #ff6b6b, #f06595, #845ef7);
+        --primary: #ff6b6b;
+        --secondary: #845ef7;
+        --accent: #ffcb6b;
+        --bg-dark: #0f1020;
+        --bg-card: rgba(22, 24, 45, 0.8);
+        --text-primary: #ffffff;
+        --text-secondary: #cdd6f4;
+        --text-muted: #94a3b8;
+        --max-width: 900px;
+        --radius: 18px;
+        --shadow: 0 20px 40px rgba(12, 15, 35, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, rgba(132, 94, 247, 0.2), transparent 55%),
+          radial-gradient(circle at bottom, rgba(240, 101, 149, 0.18), transparent 60%),
+          var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: rgba(15, 16, 32, 0.85);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 18px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        position: relative;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .brand img {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+      }
+
+      #google_translate_element {
+        position: absolute;
+        top: 18px;
+        right: 28px;
+        z-index: 1000;
+      }
+
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+
+      body {
+        top: 0px !important;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 60px 28px;
+      }
+
+      .content {
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 48px;
+        box-shadow: var(--shadow);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin: 0 0 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        color: transparent;
+        background-clip: text;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--secondary);
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        margin: 30px 0 15px;
+        color: var(--text-primary);
+      }
+
+      h4 {
+        font-size: 1.1rem;
+        margin: 20px 0 10px;
+        color: var(--text-secondary);
+      }
+
+      p {
+        margin: 15px 0;
+        color: var(--text-secondary);
+      }
+
+      ul, ol {
+        margin: 15px 0;
+        padding-left: 30px;
+        color: var(--text-secondary);
+      }
+
+      li {
+        margin: 8px 0;
+      }
+
+      strong {
+        color: var(--text-primary);
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 30px;
+        padding: 10px 20px;
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-primary);
+        transition: all 200ms ease;
+      }
+
+      .back-link:hover {
+        background: rgba(132, 94, 247, 0.2);
+        text-decoration: none;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 40px 28px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 40px 20px;
+        }
+
+        .content {
+          padding: 32px 24px;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <a href="index.html" class="brand">
+          <img src="pirocket-logo.png" alt="PIROCKET" />
+          <span>PIROCKET</span>
+        </a>
+        <div id="google_translate_element"></div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <a href="index.html" class="back-link">← Back to Home</a>
+      
+      <div class="content">
+        <h1>PIROCKET Whitepaper</h1>
+
+        <h2>Abstract</h2>
+        <p>
+          PIROCKET is a community-driven meme coin built on the Stellar Mainnet, designed to provide fast, low-cost transactions while fostering an engaged community. Leveraging Stellar's efficient blockchain technology, PIROCKET aims to create a fun and accessible cryptocurrency experience. <strong>Most importantly, PIROCKET is positioned as a future-proof cryptocurrency that prepares for the era of quantum computing, ensuring long-term security and protection against potential quantum computer hacking attempts.</strong>
+        </p>
+
+        <h2>1. Introduction</h2>
+        
+        <h3>1.1 Vision</h3>
+        <p>
+          PIROCKET envisions a decentralized future where meme coins can thrive on an environmentally friendly and efficient blockchain. By utilizing Stellar's proven technology, PIROCKET offers users a fast, reliable, and cost-effective way to participate in the cryptocurrency ecosystem. <strong>As quantum computing advances, PIROCKET is committed to staying ahead of the curve by preparing for quantum-resistant security measures, ensuring that our community's assets remain secure in the face of future technological threats.</strong>
+        </p>
+
+        <h3>1.2 Mission</h3>
+        <p>Our mission is to:</p>
+        <ul>
+          <li>Create an accessible meme coin on Stellar Mainnet</li>
+          <li>Build a vibrant and engaged community</li>
+          <li>Provide fast and low-cost transactions</li>
+          <li>Foster innovation in the Stellar ecosystem</li>
+          <li><strong>Prepare for the quantum computing era by implementing quantum-resistant security measures to protect against future cryptographic attacks</strong></li>
+        </ul>
+
+        <h2>2. Technology</h2>
+        
+        <h3>2.1 Stellar Network</h3>
+        <p>PIROCKET is built on Stellar Mainnet, which offers:</p>
+        <ul>
+          <li><strong>Fast Transactions</strong>: Settlement in 3-5 seconds</li>
+          <li><strong>Low Fees</strong>: Transaction fees of ~0.00001 XLM</li>
+          <li><strong>Energy Efficient</strong>: Environmentally friendly consensus mechanism</li>
+          <li><strong>Scalable</strong>: Can handle thousands of transactions per second</li>
+          <li><strong>Quantum-Resistant Foundation</strong>: Built on Stellar's Ed25519 cryptographic system, which provides a strong foundation for future quantum-resistant upgrades</li>
+        </ul>
+
+        <h3>2.2 Token Specifications</h3>
+        <ul>
+          <li><strong>Token Code</strong>: PIROCKET</li>
+          <li><strong>Token Name</strong>: PiRocket</li>
+          <li><strong>Network</strong>: Stellar Mainnet</li>
+          <li><strong>Total Supply</strong>: 100,000,000,000 (100 billion)</li>
+          <li><strong>Decimals</strong>: 7</li>
+          <li><strong>Contract Address</strong>: GCPKRYYXAOMTIQUA2B7AGCJWFFPAW3IJ34E3XPK4HQCDMJFA5FLKM7ZL</li>
+        </ul>
+
+        <h3>2.3 Token Standards</h3>
+        <p>
+          PIROCKET follows Stellar's native asset standard (Stellar Asset), ensuring compatibility with all Stellar wallets and exchanges.
+        </p>
+
+        <h2>3. Tokenomics</h2>
+        
+        <h3>3.1 Distribution</h3>
+        <ul>
+          <li><strong>Total Supply</strong>: 100,000,000,000 PIROCKET</li>
+          <li><strong>Initial Distribution</strong>:
+            <ul>
+              <li>Trust Wallet: 100,000,000,000 (100%)</li>
+              <li>Liquidity Pool: 1,000,000 (0.001%)</li>
+              <li>Available for trading and community distribution</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>3.2 Liquidity</h3>
+        <ul>
+          <li><strong>Initial Liquidity</strong>: 10 XLM + 1,000,000 PIROCKET</li>
+          <li><strong>Liquidity Pool</strong>: Stellar DEX</li>
+          <li><strong>Trading Pairs</strong>: XLM/PIROCKET</li>
+          <li><strong>Fee</strong>: 0.3%</li>
+        </ul>
+
+        <h3>3.3 No Token Burn Mechanism</h3>
+        <p>
+          As a community-driven meme coin, PIROCKET does not implement automatic token burning. The supply remains fixed at 100 billion tokens.
+        </p>
+
+        <h2>4. Use Cases</h2>
+        
+        <h3>4.1 Trading</h3>
+        <p>PIROCKET can be traded on:</p>
+        <ul>
+          <li>Stellar DEX (native)</li>
+          <li>StellarTerm</li>
+          <li>Interstellar.exchange</li>
+          <li>Other Stellar-compatible exchanges</li>
+        </ul>
+
+        <h3>4.2 Payments</h3>
+        <p>Due to Stellar's fast settlement, PIROCKET can be used for:</p>
+        <ul>
+          <li>Quick peer-to-peer transfers</li>
+          <li>Community rewards</li>
+          <li>Micro-transactions</li>
+        </ul>
+
+        <h3>4.3 Community Engagement</h3>
+        <ul>
+          <li>Community-driven initiatives</li>
+          <li>Meme competitions</li>
+          <li>Community voting (future governance)</li>
+        </ul>
+
+        <h2>5. Roadmap</h2>
+        
+        <h3>Phase 1: Launch (Q1 2025) ✅</h3>
+        <ul>
+          <li>✅ Token issuance on Stellar Mainnet</li>
+          <li>✅ Metadata and icon registration</li>
+          <li>✅ DEX liquidity pool creation</li>
+          <li>✅ Website launch</li>
+          <li>✅ Social media presence</li>
+        </ul>
+
+        <h3>Phase 2: Community Growth (Q2 2025)</h3>
+        <ul>
+          <li>Telegram community channel</li>
+          <li>Discord server</li>
+          <li>Community events and campaigns</li>
+          <li>Marketing initiatives</li>
+        </ul>
+
+        <h3>Phase 3: Ecosystem Expansion (Q3 2025)</h3>
+        <ul>
+          <li>Additional liquidity pools</li>
+          <li>CEX listings</li>
+          <li>Partnership announcements</li>
+          <li>Community governance (if applicable)</li>
+        </ul>
+
+        <h3>Phase 4: Future Development (Q4 2025)</h3>
+        <ul>
+          <li>Advanced features</li>
+          <li>Integration partnerships</li>
+          <li>Ecosystem expansion</li>
+          <li>Continued community growth</li>
+        </ul>
+
+        <h2>6. Security</h2>
+        
+        <h3>6.1 Network Security</h3>
+        <p>PIROCKET benefits from Stellar's robust security:</p>
+        <ul>
+          <li>Federated Byzantine Agreement (FBA) consensus</li>
+          <li>Distributed ledger technology</li>
+          <li>Proven track record since 2015</li>
+        </ul>
+
+        <h3>6.2 Smart Contract</h3>
+        <p>
+          As a Stellar native asset, PIROCKET does not require smart contracts, reducing attack vectors and complexity.
+        </p>
+
+        <h3>6.3 Transparency</h3>
+        <p>
+          All transactions are publicly visible on the Stellar blockchain, ensuring full transparency.
+        </p>
+
+        <h3>6.4 Quantum Computing Preparedness</h3>
+        
+        <p><strong>The Quantum Threat</strong></p>
+        <p>
+          As quantum computing technology advances, traditional cryptographic systems used in many cryptocurrencies may become vulnerable to quantum attacks. Quantum computers have the potential to break current cryptographic algorithms, such as RSA and ECC (Elliptic Curve Cryptography), which could compromise the security of digital assets.
+        </p>
+
+        <p><strong>PIROCKET's Quantum Defense Strategy</strong></p>
+        <p>PIROCKET is committed to protecting our community's assets from future quantum computing threats:</p>
+        <ol>
+          <li><strong>Current Security Foundation</strong>: PIROCKET utilizes Stellar's Ed25519 signature scheme, which provides strong security against current classical computing attacks and offers a better foundation for quantum-resistant transitions than older cryptographic systems.</li>
+          <li><strong>Future-Proofing Roadmap</strong>: We are actively monitoring developments in quantum-resistant cryptography and are prepared to migrate to quantum-resistant algorithms when they become standardized and adopted by the Stellar network.</li>
+          <li><strong>Proactive Security Measures</strong>: PIROCKET will implement quantum-resistant security measures ahead of widespread quantum computing threats, ensuring our community's assets remain secure in the quantum era.</li>
+          <li><strong>Network-Level Protection</strong>: As part of the Stellar ecosystem, PIROCKET benefits from Stellar's commitment to security and will automatically inherit any quantum-resistant upgrades implemented at the network level.</li>
+          <li><strong>Community Awareness</strong>: We believe in keeping our community informed about security developments and will provide transparent updates about our quantum-resistant security measures.</li>
+        </ol>
+
+        <p><strong>Why This Matters</strong></p>
+        <p>
+          Quantum computing represents both an opportunity and a challenge for the cryptocurrency industry. While quantum computers promise incredible computational power, they also pose a potential threat to current cryptographic security. PIROCKET is positioned as a forward-thinking cryptocurrency that prepares for this future, ensuring that our holders' assets remain secure long-term.
+        </p>
+
+        <p><strong>Our Commitment</strong></p>
+        <p>
+          PIROCKET is more than just a meme coin—it's a cryptocurrency built with the future in mind. By preparing for quantum computing threats today, we ensure that PIROCKET remains a secure and viable asset as technology evolves.
+        </p>
+
+        <h2>7. Community</h2>
+        
+        <h3>7.1 Community Values</h3>
+        <ul>
+          <li><strong>Transparency</strong>: Open communication and public blockchain</li>
+          <li><strong>Inclusivity</strong>: Welcoming to all community members</li>
+          <li><strong>Innovation</strong>: Encouraging creative ideas</li>
+          <li><strong>Fun</strong>: Maintaining the meme coin spirit</li>
+        </ul>
+
+        <h3>7.2 Community Channels</h3>
+        <ul>
+          <li><strong>Website</strong>: <a href="https://successclub.github.io/pirocket/">https://successclub.github.io/pirocket/</a></li>
+          <li><strong>X (Twitter)</strong>: <a href="https://x.com/KimChulmin9">@KimChulmin9</a></li>
+          <li><strong>Stellar Expert</strong>: <a href="https://stellar.expert/explorer/public/asset/PIROCKET-GCPKRYYXAOMTIQUA2B7AGCJWFFPAW3IJ34E3XPK4HQCDMJFA5FLKM7ZL">Real-time token tracking</a></li>
+        </ul>
+
+        <h2>8. Risks and Disclaimers</h2>
+        
+        <h3>8.1 Market Risks</h3>
+        <ul>
+          <li>Cryptocurrency markets are highly volatile</li>
+          <li>Token prices can fluctuate significantly</li>
+          <li>Past performance does not guarantee future results</li>
+        </ul>
+
+        <h3>8.2 Regulatory Risks</h3>
+        <ul>
+          <li>Regulatory changes may affect token usage</li>
+          <li>Compliance requirements may evolve</li>
+          <li>Jurisdiction-specific regulations apply</li>
+        </ul>
+
+        <h3>8.3 Technical Risks</h3>
+        <ul>
+          <li>Blockchain technology is still evolving</li>
+          <li>Network disruptions are possible</li>
+          <li>Smart contract risks (not applicable to PIROCKET)</li>
+        </ul>
+
+        <h3>8.4 Disclaimer</h3>
+        <p>
+          PIROCKET does not provide investment advice. This whitepaper is for informational purposes only. Always conduct your own research (DYOR) before making any investment decisions.
+        </p>
+
+        <h2>9. Legal</h2>
+        
+        <h3>9.1 No Investment Advice</h3>
+        <p>
+          PIROCKET is a meme coin and does not constitute an investment. The token is provided for entertainment and community purposes.
+        </p>
+
+        <h3>9.2 Compliance</h3>
+        <p>
+          Users are responsible for ensuring compliance with local regulations regarding cryptocurrency use and trading.
+        </p>
+
+        <h3>9.3 Tax Obligations</h3>
+        <p>
+          Token holders are responsible for their own tax obligations related to PIROCKET transactions.
+        </p>
+
+        <h2>10. Conclusion</h2>
+        <p>
+          PIROCKET represents a community-driven approach to meme coins on the Stellar network. With fast transactions, low fees, and a focus on community engagement, PIROCKET aims to create value through fun and accessibility. <strong>Most importantly, PIROCKET is positioned as a future-proof cryptocurrency that prepares for the quantum computing era, ensuring that our community's assets remain secure against potential quantum computer hacking attempts. As quantum computing technology advances, PIROCKET will be ready with quantum-resistant security measures, making it a safe choice for long-term holders who value both innovation and security.</strong>
+        </p>
+
+        <h2>11. References</h2>
+        <ul>
+          <li><strong>Stellar Network</strong>: <a href="https://www.stellar.org/">https://www.stellar.org/</a></li>
+          <li><strong>Stellar Documentation</strong>: <a href="https://developers.stellar.org/">https://developers.stellar.org/</a></li>
+          <li><strong>Stellar Expert</strong>: <a href="https://stellar.expert/">https://stellar.expert/</a></li>
+          <li><strong>Token Information</strong>: <a href="https://stellar.expert/explorer/public/asset/PIROCKET-GCPKRYYXAOMTIQUA2B7AGCJWFFPAW3IJ34E3XPK4HQCDMJFA5FLKM7ZL">View on Stellar Expert</a></li>
+        </ul>
+
+        <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 40px 0;" />
+
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+          <strong>Version</strong>: 1.0<br />
+          <strong>Last Updated</strong>: November 4, 2025<br />
+          <strong>Status</strong>: Active
+        </p>
+
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 20px;">
+          <em>This whitepaper is subject to change. Always refer to the latest version on the official website.</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        <a href="index.html">← Back to Home</a> | 
+        <a href="roadmap.html">View Roadmap</a>
+      </p>
+      <p style="margin-top: 20px;">
+        © 2025 PIROCKET. All rights reserved.
+      </p>
+    </div>
+  </body>
+</html>
+
