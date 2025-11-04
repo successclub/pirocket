@@ -16,9 +16,22 @@
           pageLanguage: 'en',
           includedLanguages: 'en,ko,ja,zh-CN,zh-TW,es,fr,de,it,pt,ru,ar,hi,tr,vi,id,th,ms,pl,nl,sv,da,fi,no,cs,hu,ro,bg,el,he',
           layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
+          autoDisplay: false,
+          multilanguagePage: true
         }, 'google_translate_element');
       }
+      
+      // Force English as default language
+      function setDefaultLanguage() {
+        if (typeof google !== 'undefined' && google.translate) {
+          var lang = localStorage.getItem('googtrans') || '';
+          if (!lang || lang.indexOf('/en') === -1) {
+            localStorage.setItem('googtrans', '/auto/en');
+          }
+        }
+      }
+      
+      window.addEventListener('load', setDefaultLanguage);
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
@@ -688,6 +701,7 @@
           <strong>Resources</strong>
           <a href="https://stellar.expert/explorer/public/asset/PIROCKET-GCPKRYYXAOMTIQUA2B7AGCJWFFPAW3IJ34E3XPK4HQCDMJFA5FLKM7ZL" target="_blank" rel="noopener">Stellar Expert</a>
           <a href="https://stellar.expert/explorer/public/liquidity-pool/0876db932dd166a4f87c84673c63b43c0f37746515027941a0a1ed23aead570b" target="_blank" rel="noopener">Liquidity Pool</a>
+          <a href="https://stellar.expert/explorer/public/account/GCPKRYYXAOMTIQUA2B7AGCJWFFPAW3IJ34E3XPK4HQCDMJFA5FLKM7ZL" target="_blank" rel="noopener">Issuer Account</a>
           <a href=".well-known/stellar.toml" target="_blank" rel="noopener">stellar.toml</a>
         </div>
         <div class="footer-links">
