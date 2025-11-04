@@ -11,29 +11,53 @@
     
     <!-- Google Translate -->
     <script type="text/javascript">
+      // Set Google Translate UI language to English
       function googleTranslateElementInit() {
+        // Clear any existing translation settings
+        if (typeof localStorage !== 'undefined') {
+          localStorage.removeItem('googtrans');
+        }
+        
         new google.translate.TranslateElement({
           pageLanguage: 'en',
           includedLanguages: 'en,ko,ja,zh-CN,zh-TW,es,fr,de,it,pt,ru,ar,hi,tr,vi,id,th,ms,pl,nl,sv,da,fi,no,cs,hu,ro,bg,el,he',
           layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
           autoDisplay: false,
-          multilanguagePage: true
+          multilanguagePage: true,
+          gaTrack: false,
+          gaId: ''
         }, 'google_translate_element');
-      }
-      
-      // Force English as default language
-      function setDefaultLanguage() {
-        if (typeof google !== 'undefined' && google.translate) {
-          var lang = localStorage.getItem('googtrans') || '';
-          if (!lang || lang.indexOf('/en') === -1) {
-            localStorage.setItem('googtrans', '/auto/en');
+        
+        // Force English UI and page language
+        setTimeout(function() {
+          if (typeof google !== 'undefined' && google.translate) {
+            var selectFrame = document.querySelector('.goog-te-menu-frame');
+            if (selectFrame) {
+              selectFrame.style.display = 'none';
+            }
+            // Ensure English is selected
+            var lang = localStorage.getItem('googtrans') || '';
+            if (lang && lang !== '/auto/en' && lang !== 'en') {
+              localStorage.setItem('googtrans', '/auto/en');
+            }
           }
-        }
+        }, 100);
       }
       
-      window.addEventListener('load', setDefaultLanguage);
+      // Force English UI language
+      window.addEventListener('load', function() {
+        // Set UI language to English
+        if (typeof google !== 'undefined' && google.translate) {
+          try {
+            var select = document.querySelector('.goog-te-combo');
+            if (select && select.value === '') {
+              select.value = '';
+            }
+          } catch(e) {}
+        }
+      });
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
     
     <style>
       :root {
@@ -118,6 +142,16 @@
 
       .goog-te-menu2-item:hover {
         background: rgba(132, 94, 247, 0.2) !important;
+      }
+
+      /* Force English UI text */
+      .goog-te-menu-value:before {
+        content: "Language Select";
+        color: var(--text-primary);
+      }
+
+      .goog-te-menu-value span:not(.goog-te-menu-value-indicator) {
+        display: none !important;
       }
 
       header {
@@ -747,13 +781,60 @@
         });
       });
 
-      // Hide Google Translate banner
+      // Hide Google Translate banner and force English UI
       setTimeout(function() {
         var banner = document.querySelector('.goog-te-banner-frame');
         if (banner) {
           banner.style.display = 'none';
         }
-      }, 100);
+        
+        // Force English UI language
+        try {
+          var select = document.querySelector('.goog-te-combo');
+          if (select) {
+            // Set to English if not already set
+            if (select.value === '' || select.value === 'auto') {
+              select.value = '';
+            }
+          }
+          
+          // Override the menu value text to show "Language Select"
+          var menuValue = document.querySelector('.goog-te-menu-value');
+          if (menuValue) {
+            var textSpan = menuValue.querySelector('span:not(.goog-te-menu-value-indicator)');
+            if (textSpan && textSpan.textContent !== 'Language Select') {
+              textSpan.textContent = 'Language Select';
+            }
+            // If no text span, add one
+            if (!textSpan) {
+              var newSpan = document.createElement('span');
+              newSpan.textContent = 'Language Select';
+              newSpan.style.color = 'var(--text-primary)';
+              menuValue.insertBefore(newSpan, menuValue.firstChild);
+            }
+          }
+        } catch(e) {
+          console.log('Translate UI customization:', e);
+        }
+      }, 500);
+      
+      // Monitor for language changes and update UI text
+      var observer = new MutationObserver(function(mutations) {
+        var menuValue = document.querySelector('.goog-te-menu-value');
+        if (menuValue) {
+          var textSpan = menuValue.querySelector('span:not(.goog-te-menu-value-indicator)');
+          if (textSpan && textSpan.textContent !== 'Language Select' && textSpan.textContent !== 'Select Language') {
+            textSpan.textContent = 'Language Select';
+          }
+        }
+      });
+      
+      setTimeout(function() {
+        var translateElement = document.getElementById('google_translate_element');
+        if (translateElement) {
+          observer.observe(translateElement, { childList: true, subtree: true });
+        }
+      }, 1000);
     </script>
   </body>
 </html>
